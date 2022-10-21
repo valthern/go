@@ -6,22 +6,20 @@ type User struct {
 	edad             int
 	nombre, apellido string
 }
+
 func (this User) nombre_completo() string {
 	return this.nombre + " " + this.apellido
 }
+func (this *User) set_name(n string) {
+	this.nombre = n
+}
 
 func main() {
-	// var omar User
-	fmt.Println(User{nombre: "Omar", apellido: "Martínez", edad: 44})
+	uriel := new(User)
+	
+	uriel.nombre = "Uriel"
 
-	omar := User{nombre: "Omar", apellido: "Martínez"}
-	fmt.Println(omar)
-
-	uriel := User{33, "Uriel", "Carrillo"}
-	fmt.Println(uriel)
-
-	ramon := new(User)
-	ramon.nombre = "Ramón"
-	ramon.apellido="Fernández"
-	fmt.Println(ramon.nombre_completo())
+	uriel.set_name("Marcos")
+	
+	fmt.Println(uriel.nombre)
 }
