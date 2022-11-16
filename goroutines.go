@@ -7,7 +7,8 @@ import(
 )
 
 func main()  {
-	mi_nombre_lentooo("Omar")
+	go mi_nombre_lentooo("Omar")
+	fmt.Println("Queeee aburridoooooo")
 }
 
 func mi_nombre_lentooo(name string)  {
