@@ -10,7 +10,8 @@ func main() {
 	// usuarios["eduardo"] = "eduardo@codigofacilito.com"
 	usuarios["eduardo"] = ""
 
-	// En un mapa se obtienen dos valores: el valor y un booleano, que indica si existe el valor o no
+	// En un mapa se obtienen dos valores: el valor "per se" y un booleano, 
+	// que indica si existe el valor o no
 	if correo, ok := usuarios["eduardo"]; ok {
 		fmt.Println(correo)
 	} else {
