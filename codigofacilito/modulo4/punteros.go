@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func modificarValor(parametro *string) {
-	*parametro = "Cambio de valor!"
+	*parametro = "¡¡¡Cambio de valor!!!"
 }
 
 func main() {
