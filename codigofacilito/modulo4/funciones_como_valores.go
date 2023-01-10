@@ -10,8 +10,16 @@ func factorial(numero int) int {
 	return factorial(numero-1) * numero
 }
 
+type customFunction func(n int) int
+
 func main() {
-	var miFuncion = factorial
+	//var miFuncion = factorial
+	//var miFuncion func(n int) int
+	var miFuncion customFunction //nil al declarar la variable
+
+	if miFuncion == nil {
+		miFuncion = factorial
+	}
 
 	resultado := miFuncion(3)
 
