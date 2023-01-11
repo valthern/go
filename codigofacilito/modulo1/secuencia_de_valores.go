@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+/*
 const DOMINGO int = 0
 const LUNES int = 1
 const MARTES int = 2
@@ -9,6 +10,17 @@ const MIERCOLES int = 3
 const JUEVES int = 4
 const VIERNES int = 5
 const SABADO int = 6
+*/
+
+const (
+	DOMINGO int = iota + 1
+	LUNES
+	MARTES
+	MIERCOLES
+	JUEVES
+	VIERNES
+	SABADO
+)
 
 func main()  {
 	fmt.Println(DOMINGO)
