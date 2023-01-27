@@ -4,17 +4,17 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strings"
 	"strconv"
+	"strings"
 )
 
 var reader *bufio.Reader
 
 type User struct {
-	id int
+	id       int
 	username string
-	email string
-	age int
+	email    string
+	age      int
 }
 
 var id int
@@ -26,7 +26,7 @@ func crearUsuario() {
 	fmt.Print("Ingresa un valor para email: ")
 	email := readLine()
 	fmt.Print("Ingresa un valor para edad: ")
-	age := readLine()
+	age, _ := strconv.Atoi(readLine())
 
 	id++
 	user := User{id, username, email, age}
