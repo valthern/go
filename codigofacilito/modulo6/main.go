@@ -26,11 +26,17 @@ func crearUsuario() {
 	fmt.Print("Ingresa un valor para email: ")
 	email := readLine()
 	fmt.Print("Ingresa un valor para edad: ")
-	age, _ := strconv.Atoi(readLine())
+	age, err := strconv.Atoi(readLine())
+
+	if err != nil {
+		panic("No es posible convertir de un string a un entero.")
+	}
 
 	id++
 	user := User{id, username, email, age}
 	users[id] = user
+
+	fmt.Println(users)
 
 	fmt.Println("Usuario creado exitosamente!")
 }
