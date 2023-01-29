@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"os/exec"
 	"strconv"
 	"strings"
 )
@@ -21,6 +22,8 @@ var id int
 var users map[int]User
 
 func crearUsuario() {
+	clearConsole()
+
 	fmt.Print("Ingresa un valor para username: ")
 	username := readLine()
 	fmt.Print("Ingresa un valor para email: ")
@@ -36,13 +39,16 @@ func crearUsuario() {
 	user := User{id, username, email, age}
 	users[id] = user
 
-	fmt.Println(users)
-
 	fmt.Println("Usuario creado exitosamente!")
 }
 
 func listarUsuarios() {
-	fmt.Println("Listado de usuarios!")
+	clearConsole()
+
+	for id, user := range users {
+		fmt.Println(id, "-", user.username)
+	}
+	fmt.Println("---")
 }
 
 func actualizarUsuario() {
@@ -51,6 +57,12 @@ func actualizarUsuario() {
 
 func eliminarUsuario() {
 	fmt.Println("Usuario eliminado exitosamente!")
+}
+
+func clearConsole() {
+	cmd := exec.Command("clear")
+	cmd.Stdout = os.Stdout
+	cmd.Run()
 }
 
 func readLine() string {
