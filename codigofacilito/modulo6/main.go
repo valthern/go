@@ -56,6 +56,17 @@ func actualizarUsuario() {
 }
 
 func eliminarUsuario() {
+	clearConsole()
+	fmt.Print("Ingresa el ID del usuario a eliminar: ")
+	id, err := strconv.Atoi(readLine())
+
+	if err != nil{
+		panic("No es posible convertir de un string a un entero.")
+	}
+
+	if _, ok := users[id]; ok {
+		delete(users, id)
+	}
 	fmt.Println("Usuario eliminado exitosamente!")
 }
 
