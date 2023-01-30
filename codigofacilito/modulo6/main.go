@@ -30,29 +30,56 @@ func crearUsuario() {
 	email := readLine()
 	fmt.Print("Ingresa un valor para edad: ")
 	age, err := strconv.Atoi(readLine())
-
+	
 	if err != nil {
 		panic("No es posible convertir de un string a un entero.")
 	}
-
+	
 	id++
 	user := User{id, username, email, age}
 	users[id] = user
-
-	fmt.Println("Usuario creado exitosamente!")
+	
+	fmt.Println(">>> Usuario creado exitosamente!")
 }
 
 func listarUsuarios() {
 	clearConsole()
-
+	
 	for id, user := range users {
 		fmt.Println(id, "-", user.username)
 	}
-	fmt.Println("---")
+	fmt.Println(">>>.")
 }
 
 func actualizarUsuario() {
-	fmt.Println("Usuario actualizado exitosamente!")
+	clearConsole()
+	fmt.Print("Ingresa el ID del usuario a actualizar: ")
+	id, err := strconv.Atoi(readLine())
+	
+	if err != nil {
+		panic("No es posible convertir de un string a un entero.")
+	}
+	
+	if user, ok := users[id]; ok {
+		fmt.Print("Ingresa un valor para username: ")
+		username := readLine()
+		fmt.Print("Ingresa un valor para el email: ")
+		email := readLine()
+		fmt.Print("Ingresa un valor para la edad: ")
+		age, err := strconv.Atoi(readLine())
+		
+		if err != nil {
+			panic("No es posible convertir de un string a un entero.")
+		}
+		
+		user.username = username
+		user.email = email
+		user.age = age
+		users[id] = user
+		fmt.Println(user)
+	}
+
+	fmt.Println(">>> Usuario actualizado exitosamente!")
 }
 
 func eliminarUsuario() {
@@ -67,7 +94,7 @@ func eliminarUsuario() {
 	if _, ok := users[id]; ok {
 		delete(users, id)
 	}
-	fmt.Println("Usuario eliminado exitosamente!")
+	fmt.Println(">>> Usuario eliminado exitosamente!")
 }
 
 func clearConsole() {
