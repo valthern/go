@@ -7,15 +7,16 @@ import (
 func main() {
 	channel := make(chan string)
 
-	go func (channel chan string)  {
-		for{
+	go func(channel chan string) {
+		for {
 			var name string
 			fmt.Scanln(&name)
 			channel <- name
 		}
 	}(channel)
 
-	msg := <- channel
-
-	fmt.Println(msg)
+	for{
+		msg := <-channel
+		fmt.Println("Estoy imprimiendo lo que recibí del canal:", msg)
+	}
 }
