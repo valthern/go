@@ -6,9 +6,17 @@ import (
 	"os"
 )
 
-func main() {
-	archivo, error := os.Open("./hola.txt")
+func main(){
+	ejecucion := readFile()
+	fmt.Println(ejecucion)
+}
 
+func readFile() bool {
+	archivo, error := os.Open("./hola.txt")
+	defer func ()  {
+		archivo.Close()
+		fmt.Println("Defer")
+	}()
 	if error != nil {
 		fmt.Println("Hubo un error al abrir el archivo")
 	}
@@ -22,4 +30,12 @@ func main() {
 		//fmt.Println(linea)
 	}
 	fmt.Println()
+
+	if true {
+		return true
+	}
+
+	fmt.Println("Nunca me ejecuto")
+	
+	return true;
 }
