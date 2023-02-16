@@ -19,6 +19,7 @@ import (
 func main() {
 	curso := CodigoFacilito.Curso{Titulo: "Curso profesional de Go!"}
 
-	// NO ENCUENTRA EL MÉTODO getTitulo()
+	// NO ENCUENTRA EL MÉTODO getTitulo() porque en minúscula es
+	// para métodos "PRIVADOS"
 	fmt.Println(curso.GetTitulo())
 }
