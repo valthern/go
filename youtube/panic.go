@@ -11,19 +11,21 @@ func main() {
 	fmt.Println("Nunca me voy a imprimir")
 }
 
-func executeReadFile()  {
+func executeReadFile() {
 	ejecucion := read_File()
 	fmt.Println(ejecucion)
 }
 
 func read_File() bool {
+	// Forzamos la apertura de un archivo que no existe
 	archivo, error := os.Open("./holaa.txt")
 
 	defer func() {
 		archivo.Close()
 		fmt.Println("Defer")
 
-		recover()
+		r := recover()
+		fmt.Println("Recover: ", r)
 	}()
 
 	if error != nil {
