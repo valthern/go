@@ -1,22 +1,31 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 )
 
+// GET, POST, PUT, DELETE
+
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Add("Nombre", "Valor del Header")
-		// w.Header().Add("Nombrecito","Valor del Headercito")
-		// fmt.Fprintf(w, "Hola mundo!\n")
-		// http.Redirect(w,r,"/dos", http.StatusMovedPermanently)
-		http.Redirect(w, r, "https://www.google.com.mx", http.StatusMovedPermanently)
-	})
+		fmt.Println("El método es: " + r.Method)
 
-	http.HandleFunc("/dos", func(w http.ResponseWriter, r *http.Request) {
-		// fmt.Fprintf(w, "Hola mundo, dos!\n")
-		http.NotFound(w, r)
+		switch r.Method {
+		case "GET":
+			fmt.Fprintf(w, "Hola Mundo con el método Get\n")
+		case "POST":
+			fmt.Fprintf(w, "Hola Mundo con el método Post\n")
+		case "PUT":
+			fmt.Fprintf(w, "Hola Mundo con el método Put\n")
+		case "DELETE":
+			fmt.Fprintf(w, "Hola Mundo con el método Delete\n")
+		default:
+			fmt.Fprintf(w, "Método no válido\n", http.StatusBadRequest)
+		}
+
+		fmt.Fprintf(w, "Hola mundo")
 	})
 
 	log.Fatal(http.ListenAndServe("localhost:3000", nil))
