@@ -8,7 +8,7 @@ import "fmt"
 func main() {
 	// dog es la primera variable de prueba
 	// cat es la segunda variable de prueba
-	dog, cat := "🐕", "😺" 
+	dog, cat := "🐕", "😺"
 	// face es la tercera variable de prueba
 	cat, face := "gatico", "🥴"
 	fmt.Println(dog, cat, face)
@@ -21,7 +21,14 @@ func main() {
 	var y uint16 = 23000
 	// z es casteada
 	z := uint16(x) + y
-	fmt.Printf("Tipo: %T, Valor: %v\n",z,z)
+	fmt.Printf("Tipo: %T, Valor: %v\n", z, z)
 	// Pi es una constante que vale 3.14159265358979...
 	//const Pi = 3.14159265358979
+
+	fruit := "🍌"
+	var p *string
+	p = &fruit
+	*p = "🥑"
+	fmt.Printf("Tipo: %T, Valor: %s, Direccion: %v\n", fruit, fruit, &fruit)
+	fmt.Printf("Tipo: %T, Valor: %v, Desreferenciación: %s\n", p, p, *p)
 }
