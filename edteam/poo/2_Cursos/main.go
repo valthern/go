@@ -23,16 +23,5 @@ func main() {
 		},
 	}
 
-	Css := Course{
-		Name:   "CSS desde Cero",
-		IsFree: true,
-	}
-
-	Js := Course{}
-	Js.Name = "Curso JS"
-	Js.UserIDs = []uint{12, 67}
-
-	fmt.Println(Go.Name)
-	fmt.Printf("%+v\n", Css)
-	fmt.Printf("%+v\n", Js)
+	Go.PrintClasses()
 }
