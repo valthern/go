@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func (c Course) PrintClasses() {
 	text := "Las clases son: "
 	for _, class := range c.Classes {
