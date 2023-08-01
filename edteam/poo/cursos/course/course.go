@@ -1,6 +1,16 @@
-package main
+package course
 
-import "fmt"
+import (
+	"fmt"
+)
+
+type Course struct {
+	Name    string
+	Price   float64
+	IsFree  bool
+	UserIDs []uint
+	Classes map[uint]string
+}
 
 func (c Course) PrintClasses() {
 	text := "Las clases son: "
