@@ -1,11 +1,13 @@
 package main
 
 import (
+	"fmt"
+
 	"example.com/course"
 )
 
 func main() {
-	Go := course.Course {
+	Go := &course.Course {
 		Name: "Go desde Cero",
 		Price: 12.34,
 		IsFree: false,
@@ -18,5 +20,6 @@ func main() {
 	}
 
 	Go.PrintClasses()
-	
+	Go.ChangePrice(67.12)
+	fmt.Println(Go.Price)
 }
