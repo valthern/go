@@ -1,14 +1,13 @@
 package main
 
 import (
-	"fmt"
-
-	"example.com/customer"
-	"example.com/invoice"
-	"example.com/invoiceitem"
+        "fmt"
+        "example.com/customer"
+        "example.com/invoice"
+        "example.com/invoiceitem"
 )
 
-func main() {
+func main(){
 	i := invoice.New(
 		"Colombia",
 		"Popayán",
