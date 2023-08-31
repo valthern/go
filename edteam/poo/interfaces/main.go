@@ -20,8 +20,17 @@ func (t Text) Greet() {
 	fmt.Printf("Hola, soy %s\n", t)
 }
 
+func GreetAll(gs ...Greeter)  {
+	for _, g := range gs {
+		g.Greet()
+		fmt.Printf("\t Valor: %v, Tipo: %T\n", g, g)
+	}
+}
+
 func main()  {
-	// var g Greeter = Person{ Name: "Alejandro"}
-	var g Greeter = Text("Daisy")
-	g.Greet()
+	p := Person{Name: "Alejandro"}
+	var t Text = "Daisy"
+	// p.Greet()
+	// t.Greet()
+	GreetAll(p, t)
 }
