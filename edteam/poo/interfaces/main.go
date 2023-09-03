@@ -27,6 +27,10 @@ func (p Person) Bye() {
 	fmt.Printf("Adiós, soy %s\n", p.Name)
 }
 
+func (p Person) String() string {
+	return "Hola, soy una persona y mi nombre es: " + p.Name
+}
+
 type Text string
 
 func (t Text) Greet() {
@@ -60,8 +64,9 @@ func All(gbs ...GreeterByer) {
 
 func main() {
 	p := Person{Name: "Alejandro"}
-	var t Text = "Daisy"
+	// var t Text = "Daisy"
 	// p.Greet()
 	// t.Greet()
-	All(p, t)
+	// All(p, t)
+	fmt.Println(p)
 }
