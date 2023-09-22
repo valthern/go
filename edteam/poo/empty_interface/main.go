@@ -10,11 +10,18 @@ type exampler interface {
 }
 
 func wrapper(i interface{}) {
-	fmt.Printf("valor: %v, Tipo: %T\n", i, i)
+	// v, ok := i.(string)
+	// if ok {
+	// 	fmt.Printf("\t%s\n", strings.ToUpper(v))
+	// }
 
-	v, ok := i.(string)
-	if ok {
+	switch v := i.(type) {
+	case string:
 		fmt.Printf("\t%s\n", strings.ToUpper(v))
+	case int:
+		fmt.Println(v * 2)
+	default:
+		fmt.Printf("valor: %v, Tipo: %T\n", i, i)
 	}
 }
 
