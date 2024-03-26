@@ -86,9 +86,13 @@ func main() {
 		fmt.Println("El agua está en estado líquido:", gradosCentigradosDelAgua, "°C")
 	}
 
+	// Array
+	var array [4]int
+	fmt.Println("Array:", array)
+
 	// Slice
 	slice := []int{0, 1, 2, 3, 4, 5, 6}
-	fmt.Println(slice, "Length Slice:", len(slice), "Capacity Slice:", cap(slice))
+	fmt.Println("Slice:", slice, "Length Slice:", len(slice), "Capacity Slice:", cap(slice))
 
 	// Métodos en el slice (primer índice es inclusivo, el segudo es exclusivo)
 	fmt.Println(slice[0])
